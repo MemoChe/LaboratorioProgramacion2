@@ -22,5 +22,8 @@ int main() {
     cout << ad ;
 
     cout << ad2;
+    
+    int num = ad [0];
+
     return 0;
 }
