@@ -15,6 +15,14 @@ int main() {
 
     ad.remove(0);
     cout << ad.getSize() << endl;
+    int base2 [] = {40,50, 60};
 
+    ArrayDin ad2 (base2,3);
+
+    ArrayDin ad3 = ad + ad2; // operator +
+                             //
+    cout << (ad == ad2);
+
+    cout << ad3 ; // operator <<
     return 0;
 }

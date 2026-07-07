@@ -56,3 +56,49 @@ void ArrayDin::remove(int pos) {
 int ArrayDin::getSize() const {
     return this->size;
 }
+
+int & ArrayDin::operator[](int & i) {
+  if (i < 0 || i >= size) throw "Error the index has to be in the range of the size";
+  return data[i];
+}
+
+ArrayDin ArrayDin::operator + (ArrayDin & other) {
+    int newSize = this->size + other.size;
+    int *combined = new int[newSize];
+    for (int i = 0; i < this->size; i++)
+        combined[i] = this->data[i];
+    for (int i = 0; i < other.size; i++)
+        combined[this->size + i] = other.data[i];
+    ArrayDin result(combined, newSize);
+    delete[] combined;
+    return result;
+}
+
+bool ArrayDin::operator== (ArrayDin & other) {
+    if (this->size != other.size)
+        return false;
+    for (int i = 0; i < this->size; i++)
+        if (this->data[i] != other.data[i])
+            return false;
+    return true;
+}
+
+bool ArrayDin::operator < (ArrayDin & other) {
+    if (this->size != other.size)
+        return this->size < other.size;
+    for (int i = 0; i < this->size; i++)
+        if (this->data[i] != other.data[i])
+            return this->data[i] < other.data[i];
+    return false;
+}
+
+bool ArrayDin::operator > (ArrayDin & other) {
+    if (this->size != other.size)
+        return this->size > other.size;
+    for (int i = 0; i < this->size; i++)
+        if (this->data[i] != other.data[i])
+            return this->data[i] > other.data[i];
+    return false;
+}
+
+

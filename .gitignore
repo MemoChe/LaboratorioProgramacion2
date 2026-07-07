@@ -9,3 +9,7 @@ test
 .vscode/
 .idea/
 .DS_Store
+
+# clangd
+compile_commands.json
+.cache/
